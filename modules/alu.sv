@@ -12,6 +12,8 @@ module alu
                 3'b010 : result = srca+srcb;
                 3'b110 : result = srca-srcb;
                 3'b111 : result = (srca<srcb)?1:0;
+                // Important to have the default case as not all 8 covered above
+                default: $error("*E ALU runtime: Unknown control value supplied %b", control);
             endcase
         end
 
